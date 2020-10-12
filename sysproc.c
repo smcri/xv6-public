@@ -89,3 +89,18 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int sys_shutdown(void)
+{
+	outw(0x604, 0x2000);
+	return 0;
+}
+
+int sys_getprocinfo()
+{
+	cprintf("Direct call to procdump \n");
+	procdump();
+	cprintf("Direct call to procdum end \n");
+	return 0;	
+		
+}
