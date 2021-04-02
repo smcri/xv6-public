@@ -1,0 +1,111 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+boy(tom).
+boy(bob).
+girl(alice).
+girl(lili).
+pay(X,Y) :- boy(X), girl(Y).
+</div>
+
+<div class="nb-cell query" name="q1">
+trace,pay(X,Y).
+</div>
+
+<div class="nb-cell program" name="p2">
+boy(tom).
+boy(bob).
+girl(alice).
+girl(lili).
+pay(X,Y) :- boy(X), girl(Y),!. %cut operator added to prevent backtracking
+</div>
+
+<div class="nb-cell query" name="q2">
+pay(X,Y).
+</div>
+
+<div class="nb-cell program" name="p3">
+animal(dog).
+animal(cat).
+animal(elephant).
+animal(tiger).
+animal(python).
+snake(cobra).
+snake(python).
+likes(mary, X) :- snake(X),!. %cut operator prevents backtracking when a snake is found
+likes(mary, X) :- animal(X).
+</div>
+
+<div class="nb-cell query" name="q3">
+likes(X,Y)
+</div>
+
+<div class="nb-cell program" name="p4">
+animal(dog).
+animal(cat).
+animal(elephant).
+animal(tiger).
+animal(cobra).
+animal(python).
+snake(cobra).
+snake(python).
+likes(mary, X) :- snake(X).
+likes(mary, X) :- animal(X).
+</div>
+
+<div class="nb-cell query" name="q4">
+likes(X,Y)
+</div>
+
+<div class="nb-cell program" name="p5">
+animal(dog).
+animal(cat).
+animal(elephant).
+animal(tiger).
+animal(cobra).
+animal(python).
+snake(cobra).
+snake(python).
+likes(mary, X) :- snake(X),!.
+likes(mary, X) :- animal(X).
+</div>
+
+<div class="nb-cell query" name="q5">
+likes(X,Y)
+</div>
+
+<div class="nb-cell program" name="p6">
+animal(dog).
+animal(cat).
+animal(elephant).
+animal(tiger).
+animal(cobra).
+animal(python).
+snake(cobra).
+snake(python).
+likes(mary, X) :- snake(X),fail.
+likes(mary, X) :- animal(X).
+</div>
+
+<div class="nb-cell query" name="q6">
+likes(X,Y)
+</div>
+
+<div class="nb-cell program" name="p7">
+animal(dog).
+animal(cat).
+animal(elephant).
+animal(tiger).
+animal(cobra).
+animal(python).
+snake(cobra).
+snake(python).
+likes(mary, X) :- snake(X),!,fail.
+likes(mary, X) :- animal(X).
+</div>
+
+<div class="nb-cell query" name="q7">
+likes(X,Y)
+</div>
+
+</div>
